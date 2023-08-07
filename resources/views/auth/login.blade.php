@@ -50,69 +50,36 @@
 </head>
 
 <body>
+    <div class="container">
 
-    <!-- ======= Header ======= -->
-    <header id="header" class="header fixed-top d-flex align-items-center">
 
-        <div class="d-flex align-items-center justify-content-between">
-            <a href="" class="logo d-flex align-items-center">
-                <span class="d-none d-lg-block">Hello</span>
-            </a>
-            <i class="bi bi-list toggle-sidebar-btn"></i>
-        </div><!-- End Logo -->
+      <form style="width: 50%;margin-left:30%;margin-top:10%;" method="post" action="{{ route('login') }}">
+        @csrf <!-- CSRF token for form submission security -->
+    
+        <!-- Email input -->
+        <h2 class="mb-2 text-center">Login Form</h2>
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form2Example1">Email address</label>
+            <input type="email" id="form2Example1" name="email" class="form-control" />
+            <!-- Add the name attribute "name" to the email input field -->
+        </div>
+    
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form2Example2">Password</label>
+            <input type="password" id="form2Example2" name="password" class="form-control" />
+            <!-- Add the name attribute "password" to the password input field -->
+        </div>
+    
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+    
+        <!-- Register button -->
+        <div class="text-center">
+            <p>Not a member? <a href="{{ route('register') }}">Register</a></p>
+        </div>
+    </form>
+    
 
-        <nav class="header-nav ms-auto">
-            <ul class="d-flex align-items-center">
-
-                <li class="nav-item d-block d-lg-none">
-                    <a class="nav-link nav-icon search-bar-toggle " href="">
-                        <i class="bi bi-search"></i>
-                    </a>
-                </li><!-- End Search Icon-->
-
-                <li class="nav-item dropdown pe-3">
-
-                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href=""
-                        data-bs-toggle="dropdown">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">{{ auth()->check() ? auth()->user()->name : 'Guest' }}</span>
-                    </a><!-- End Profile Iamge Icon -->
-
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                        <li class="dropdown-header">
-                            <h6 class="d-none d-md-block dropdown-toggle ps-2">{{ auth()->check() ? auth()->user()->name : 'Guest' }}</h6>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center"
-                                href="">
-                                <i class="bi bi-person"></i>
-                                <span>My Profile</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="">
-                                <i class="bi bi-box-arrow-right"></i>
-                                <span>
-                                    <form method="POST" action="{{ route('logout')}}">
-                                        @csrf
-                                        <button class="btn btn-sm btn-primary" type="submit" >Logout</button>
-                                    </form>
-                                </span>
-                            </a>
-                        </li>
-
-                    </ul><!-- End Profile Dropdown Items -->
-                </li><!-- End Profile Nav -->
-
-            </ul>
-        </nav><!-- End Icons Navigation -->
-
-    </header>
+</div>
+</body>
